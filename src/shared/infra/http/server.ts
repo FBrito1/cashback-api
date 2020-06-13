@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import 'dotenv/config';
 
 import express, { Response, Request, NextFunction } from 'express';
+import { errors } from 'celebrate';
 import 'express-async-errors';
 import routes from './routes';
 import AppError from '@shared/errors/AppError';
@@ -13,6 +14,7 @@ const app = express();
 
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
