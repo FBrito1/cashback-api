@@ -5,11 +5,11 @@ import ICreateOrderDto from '@modules/orders/dtos/ICreateOrderDto';
 
 import Order from '../entities/Order';
 
-class OrderRepository implements IOrdersRepository {
+class OrderWhitelistRepository implements IOrdersRepository {
   private ormRepository: Repository<Order>;
   constructor() {
     this.ormRepository = getRepository(Order);
   }
 }
 
-export default OrderRepository;
+export default OrderWhitelistRepository;
