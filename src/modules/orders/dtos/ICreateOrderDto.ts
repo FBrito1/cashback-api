@@ -4,6 +4,7 @@ export default interface ICreateOrderDTO {
   order_id: string;
   value: number;
   user_id: string;
+  cpf: string;
   cashback_percentage: number;
   cashback_value: number;
   status: OrderStatusEnum;

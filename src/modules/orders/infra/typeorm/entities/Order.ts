@@ -4,15 +4,16 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  PrimaryColumn,
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
 
 import User from '@modules/users/infra/typeorm/entities/User';
 
-@Entity('users')
+@Entity('orders')
 class Order {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn()
   order_id: string;
 
   @Column()
@@ -26,6 +27,9 @@ class Order {
 
   @Column()
   status: string;
+
+  @Column()
+  user_id: string;
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'user_id' })

@@ -12,6 +12,7 @@ interface IRequest {
   order_id: string;
   value: number;
   user_id: string;
+  cpf: string;
   cashback_percentage: number;
   cashback_value: number;
   status: OrderStatusEnum;
@@ -31,6 +32,7 @@ export default class CreateOrderService {
   public async execute({
     order_id,
     user_id,
+    cpf,
     value,
     cashback_value,
     cashback_percentage,
@@ -44,6 +46,10 @@ export default class CreateOrderService {
 
     if (!foundUser) {
       throw new AppError('User not found.');
+    }
+
+    if (foundUser.cpf !== cpf) {
+      throw new AppError('You only can create a order with the registered cpf');
     }
 
     if (duplicateOrderId) {

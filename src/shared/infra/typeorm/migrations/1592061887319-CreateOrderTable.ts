@@ -9,16 +9,12 @@ export default class CreateOrderTable1592061887319
         columns: [
           {
             name: 'order_id',
-            type: 'uuid',
+            type: 'varchar',
             isPrimary: true,
-            generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()',
           },
           {
             name: 'value',
-            type: 'decimal',
-            precision: 2,
-            scale: 2,
+            type: 'numeric',
           },
           {
             name: 'cashback_percentage',
@@ -26,9 +22,7 @@ export default class CreateOrderTable1592061887319
           },
           {
             name: 'cashback_value',
-            type: 'decimal',
-            precision: 2,
-            scale: 2,
+            type: 'numeric',
           },
           {
             name: 'status',

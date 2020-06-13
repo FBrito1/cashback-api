@@ -32,6 +32,7 @@ describe('CreateOrder', () => {
     const fakeOrderData: ICreateOrderDto = {
       order_id: '1',
       user_id: user.id,
+      cpf: '00000000000',
       value: 1000,
       cashback_percentage: 10,
       cashback_value: 100,
@@ -53,6 +54,7 @@ describe('CreateOrder', () => {
     const fakeOrderData: ICreateOrderDto = {
       order_id: '1',
       user_id: 'non-existing-user',
+      cpf: '00000000000',
       value: 1000,
       cashback_percentage: 10,
       cashback_value: 100,
@@ -81,6 +83,7 @@ describe('CreateOrder', () => {
     const fakeOrderData: ICreateOrderDto = {
       order_id: '1',
       user_id: user.id,
+      cpf: '00000000000',
       value: 1000,
       cashback_percentage: 10,
       cashback_value: 100,

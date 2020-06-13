@@ -16,12 +16,12 @@ container.registerSingleton<IUsersRepository>(
   UsersRepository,
 );
 
-// container.registerSingleton<IOrdersRepository>(
-//   'OrdersRepository',
-//   OrdersRepository,
-// );
+container.registerSingleton<IOrdersRepository>(
+  'OrdersRepository',
+  OrdersRepository,
+);
 
-// container.registerSingleton<IOrdersWhitelistRepository>(
-//   'UsersRepository',
-//   OrderWhitelistRepository,
-// );
+container.registerSingleton<IOrdersWhitelistRepository>(
+  'OrdersWhitelistRepository',
+  OrderWhitelistRepository,
+);

@@ -15,7 +15,7 @@ interface IResponse {
 @injectable()
 export default class GetBuyerOrderStatusService {
   constructor(
-    @inject('ordersWhitelistRepository')
+    @inject('OrdersWhitelistRepository')
     private ordersWhitelistRepository: IOrdersWhitelistRepository,
   ) {}
 

@@ -1,14 +1,19 @@
 import { getRepository, Repository } from 'typeorm';
 
-import IOrdersRepository from '@modules/orders/repositories/IOrdersRepository';
-import ICreateOrderDto from '@modules/orders/dtos/ICreateOrderDto';
+import IOrdersWhitelistRepository from '@modules/orders/repositories/IOrdersWhitelistRepository';
 
-import Order from '../entities/Order';
+import OrderWhitelist from '../entities/OrderWhitelist';
 
-class OrderWhitelistRepository implements IOrdersRepository {
-  private ormRepository: Repository<Order>;
+class OrderWhitelistRepository implements IOrdersWhitelistRepository {
+  private ormRepository: Repository<OrderWhitelist>;
   constructor() {
-    this.ormRepository = getRepository(Order);
+    this.ormRepository = getRepository(OrderWhitelist);
+  }
+
+  public async findWhiteListByCpf(
+    cpf: string,
+  ): Promise<OrderWhitelist | undefined> {
+    return this.ormRepository.findOne({ where: { cpf } });
   }
 }
 

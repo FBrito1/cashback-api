@@ -10,6 +10,32 @@ class OrderRepository implements IOrdersRepository {
   constructor() {
     this.ormRepository = getRepository(Order);
   }
+
+  public async findOrderById(order_id: string): Promise<Order | undefined> {
+    return this.ormRepository.findOne(order_id);
+  }
+
+  public async create({
+    order_id,
+    user_id,
+    value,
+    cashback_percentage,
+    cashback_value,
+    status,
+  }: ICreateOrderDto): Promise<Order> {
+    const order = this.ormRepository.create({
+      order_id,
+      user_id,
+      value,
+      cashback_percentage,
+      cashback_value,
+      status,
+    });
+
+    await this.ormRepository.save(order);
+
+    return order;
+  }
 }
 
 export default OrderRepository;
