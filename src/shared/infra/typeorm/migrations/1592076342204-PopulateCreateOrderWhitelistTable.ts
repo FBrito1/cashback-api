@@ -1,11 +1,11 @@
-import { MigrationInterface, QueryRunner, getRepository } from 'typeorm';
-
-import { OrderWhitelistSeed } from '../seeds/OrderWhitelistSeed.seed';
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export default class PopulateCreateOrderWhitelistTable1592076342204
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
-    await getRepository('orders_whitelist').save(OrderWhitelistSeed);
+    await queryRunner.query(
+      `INSERT INTO orders_whitelist (cpf, active) VALUES (15350946056, 1)`,
+    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<any> {}
