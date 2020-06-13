@@ -5,7 +5,7 @@ import OrderWhitelist from '../../infra/typeorm/entities/OrderWhitelist';
 class FakeOrdersWhitelistRepository implements IOrdersWhitelistRepository {
   private ordersWhitelist: OrderWhitelist[] = [
     {
-      cpf: '15350946056',
+      cpf: '15350946055',
       active: 1,
       created_at: new Date(),
       updated_at: new Date(),

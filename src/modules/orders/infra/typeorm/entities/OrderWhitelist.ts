@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity('orders_whitelist')
-class OrderWhitelist {
+class OrdersWhitelist {
   @PrimaryColumn()
   cpf: string;
 
@@ -21,4 +21,4 @@ class OrderWhitelist {
   updated_at: Date;
 }
 
-export default OrderWhitelist;
+export default OrdersWhitelist;
