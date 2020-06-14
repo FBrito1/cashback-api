@@ -47,7 +47,7 @@ yarn test
 
 - Create a new free account on: https://sentry.io
 - Create a new project for Node platform and get the dsn key
-- Configure the SENTRY_DSN_KEY env variable with the dsn key
+- Configure the SENTRY_DSN_KEY env variable with the dsn key recovered
 
 ## Author
 
