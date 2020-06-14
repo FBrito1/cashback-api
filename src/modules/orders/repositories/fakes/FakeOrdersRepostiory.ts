@@ -10,6 +10,10 @@ class FakeOrdersRepository implements IOrdersRepository {
     return this.orders.find(order => order.order_id === order_id);
   }
 
+  public async findAllOrdersByUserId(user_id: string): Promise<Order[]> {
+    return this.orders.filter(order => order.user_id === user_id);
+  }
+
   public async create({
     order_id,
     value,

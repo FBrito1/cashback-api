@@ -4,6 +4,7 @@ import { container } from 'tsyringe';
 import CreateOrderService from '@modules/orders/services/CreateOrderService';
 import GetBuyerOrderStatusService from '@modules/orders/services/GetBuyerOrderStatusService';
 import GetCashbackValueService from '@modules/orders/services/GetCashbackValueService';
+import ListAllOrdersService from '@modules/orders/services/ListAllOrdersService';
 
 interface IRequest {
   order_id: string;
@@ -39,5 +40,17 @@ export default class OrdersController {
     });
 
     return response.json(order);
+  }
+
+  public async list(request: Request, response: Response): Promise<Response> {
+    const { user } = request;
+
+    const listAllOrders = container.resolve(ListAllOrdersService);
+
+    const orders = await listAllOrders.execute({
+      user_id: user.id,
+    });
+
+    return response.json(orders);
   }
 }

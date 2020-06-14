@@ -23,4 +23,6 @@ ordersRouter.post(
   ordersController.create,
 );
 
+ordersRouter.get('/', ordersController.list);
+
 export default ordersRouter;

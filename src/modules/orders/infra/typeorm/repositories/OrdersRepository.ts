@@ -15,6 +15,14 @@ class OrderRepository implements IOrdersRepository {
     return this.ormRepository.findOne(order_id);
   }
 
+  public async findAllOrdersByUserId(user_id: string): Promise<Order[]> {
+    return this.ormRepository.find({
+      where: {
+        user_id,
+      },
+    });
+  }
+
   public async create({
     order_id,
     user_id,
