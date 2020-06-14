@@ -49,6 +49,10 @@ yarn test
 - Create a new project for Node platform and get the dsn key
 - Configure the SENTRY_DSN_KEY env variable with the dsn key recovered
 
+## API DOCS
+
+- https://documenter.getpostman.com/view/4407813/Szzhee2c?version=latest
+
 ## Author
 
 👤 **Fabio Brito**
