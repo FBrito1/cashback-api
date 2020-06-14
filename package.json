@@ -11,6 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@sentry/node": "5.17.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "celebrate": "^12.1.1",

@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import 'dotenv/config';
+import * as Sentry from '@sentry/node';
 
 import express, { Response, Request, NextFunction } from 'express';
 import { errors } from 'celebrate';
@@ -12,8 +13,10 @@ import '@shared/container';
 
 const app = express();
 
+app.use(Sentry.Handlers.requestHandler());
 app.use(express.json());
 app.use(routes);
+app.use(Sentry.Handlers.errorHandler());
 app.use(errors());
 
 app.use(
@@ -34,5 +37,7 @@ app.use(
 );
 
 app.listen(3333, () => {
+  console.log('SENTRYKEY', process.env.SENTRY_DSN_KEY);
+  Sentry.init({ dsn: process.env.SENTRY_DSN_KEY });
   console.log('Server start on port 3333');
 });
